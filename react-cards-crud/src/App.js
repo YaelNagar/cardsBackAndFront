@@ -38,7 +38,7 @@ function App() {
 
   return (
     <div className="App">
-      <div className="card-container">
+      <div className="card-container justify-content-center d-flex">
         {allCards.map((card) => (
           <Card
             key={card.id}

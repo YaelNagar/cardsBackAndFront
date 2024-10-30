@@ -1,0 +1,18 @@
+.color-circle {
+    width: 30px;
+    height: 20px;
+    border: 1px solid #817b7b;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  
+  .color-circle:hover {
+    transform: scale(1.1);
+  }
+
+  .choose-color {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+  }

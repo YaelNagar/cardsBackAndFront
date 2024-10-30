@@ -1,7 +1,5 @@
 .card-container {
-  display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 20px;
   padding: 20px;
 }
@@ -13,7 +11,6 @@
   padding: 20px;
   width: 200px;
   text-align: center;
-  position: relative;
 }
 
 .input-edit {
@@ -37,46 +34,6 @@
 
 .color-button:hover {
   background-color: #f0f0f0;
-}
-
-.choose-color {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.color-circle {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-
-.color-circle:hover {
-  transform: scale(1.1);
-}
-
-.choose-color {
-  display: flex;
-  gap: 10px;
-  margin-top: 20px;
-}
-
-.color-circle {
-  width: 30px;
-  height: 20px;
-  border-radius: 50%;
-  cursor: pointer;
-  border: 1px solid #817b7b;
-  transition: transform 0.2s;
-}
-
-.deleteIcon {
-  height: 30px;
-  width: 20px;
-  cursor: pointer;
-  color: #ccc;
 }
 
 .addIcon {
