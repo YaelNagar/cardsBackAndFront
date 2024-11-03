@@ -1,7 +1,9 @@
 .card-container {
+  display: grid;
   flex-wrap: wrap;
-  gap: 20px;
-  padding: 20px;
+  justify-content: center;
+  gap: 16px; 
+  padding: 16px;
 }
 
 .card {
@@ -11,6 +13,10 @@
   padding: 20px;
   width: 200px;
   text-align: center;
+}
+
+.card:hover {
+  transform: scale(1.05);
 }
 
 .input-edit {
@@ -39,4 +45,26 @@
 .addIcon {
   height: 10%;
   width: 10%;
+  cursor: pointer;
+}
+
+span {
+  cursor: pointer;
+}
+
+.dragging {
+  padding: "16px";
+  margin: "8px";
+  border-radius: "8px";
+  color: "#fff";
+  text-align: "center";
+  height: "100px";
+  display: "flex";
+  justify-content: "center";
+  align-items: "center";
+  cursor: "move";
+}
+
+.card-row{
+  width: 100%;
 }

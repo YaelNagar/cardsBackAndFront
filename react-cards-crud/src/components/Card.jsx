@@ -4,7 +4,14 @@ import ChooseColor from "./ChooseColor";
 import axios from "axios";
 import DeleteCard from "./DeleteCard";
 
-const Card = ({ cardId, cardColor, cardText, allCards, setCards }) => {
+const Card = ({
+  cardId,
+  cardColor,
+  cardText,
+  allCards,
+  setCards,
+  setError,
+}) => {
   const [colorCard, setColorCard] = useState(cardColor);
   const [text, setText] = useState(cardText);
   const [isEditing, setIsEditing] = useState(false);
@@ -12,11 +19,6 @@ const Card = ({ cardId, cardColor, cardText, allCards, setCards }) => {
   const path = "http://localhost:5000/api/cards";
 
   const updateCard = (newColor = colorCard, newText = text) => {
-    setColorCard(newColor);
-    setText(newText);
-    setShowColors(false);
-    setIsEditing(false);
-
     axios
       .put(`${path}/${cardId}`, { color: newColor, text: newText })
       .then((response) => {
@@ -24,7 +26,14 @@ const Card = ({ cardId, cardColor, cardText, allCards, setCards }) => {
       })
       .catch((error) => {
         console.error("Error updating card color:", error);
+        setError(
+          error.response ? error.response.data.error : "An error occurred"
+        );
       });
+    setColorCard(newColor);
+    setText(newText);
+    setShowColors(false);
+    setIsEditing(false);
   };
 
   const handleTextChange = (e) => {
@@ -42,6 +51,7 @@ const Card = ({ cardId, cardColor, cardText, allCards, setCards }) => {
           type="text"
           value={text}
           onChange={handleTextChange}
+          setPreviusTex
           onBlur={() => updateCard(colorCard, text)}
           autoFocus
           className="input-edit"
@@ -56,7 +66,12 @@ const Card = ({ cardId, cardColor, cardText, allCards, setCards }) => {
             style={{ backgroundColor: cardColor }}
             onClick={handleColorButtonClick}
           ></button>
-          <DeleteCard cardId={cardId} cards={allCards} setCards={setCards} />
+          <DeleteCard
+            cardId={cardId}
+            cards={allCards}
+            setCards={setCards}
+            setError={setError}
+          />
         </div>
       ) : (
         <ChooseColor
